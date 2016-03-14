@@ -31,12 +31,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: /app/,
         loader: 'style-loader!css-loader?' + qs.stringify({
           modules: true,
           importLoaders: 1,
           localIdentName: '[path][name]-[local]'
         })
-      }
+      },
+      {
+        test: /\.css$/,
+        exclude: /app/,
+        loader: 'style!css'
+      },
 
     ]
   }

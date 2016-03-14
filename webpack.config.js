@@ -59,6 +59,11 @@ module.exports = {
           importLoaders: 1,
           localIdentName: '[path][name]-[local]'
         })
+      },
+      {
+        test: /\.css$/,
+        exclude: path.join(__dirname, 'app'),
+        loader: 'style-loader!css-loader'
       }
 
     ]
