@@ -6,8 +6,8 @@ import io from "socket.io-client";
 
 class VehicleSocket extends Component {
   componentDidMount() {
-    this.socket = io('http://localhost:3001');
-
+    // this.socket = io('http://localhost:3001');
+    this.socket = io('http://pdxlivebus.azurewebsites.net/');
     this.socket.on('vehicles_update', (data) => this.props.actions.updateVehicles(data));
   }
 
