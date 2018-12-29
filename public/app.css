@@ -1,0 +1,38 @@
+.marker {
+  -webkit-transition: all 7s ease-in-out;
+  -moz-transition: all 7s ease-in-out;
+  -o-transition: all 7s ease-in-out;
+  transition: all 7s ease-in-out;
+
+  border-radius: 15px;
+  border: 1px solid #FFF;
+  display: inline-block;
+  width: auto!important;
+  height: auto!important;
+  width: 30px!important;
+  text-align: center;
+  height: 30px!important;
+  line-height: 30px;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.bus {
+  background-color: #333;
+}
+
+.rail90 {
+  background-color: #D11241;
+}
+.rail100 {
+  background-color: #0069AA;
+}
+.rail190 {
+  background-color: #FFC423;
+}
+.rail200 {
+  background-color: #008752;
+}
+.rail290 {
+  background-color: #D25D13;
+}
