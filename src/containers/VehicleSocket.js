@@ -11,10 +11,6 @@ class VehicleSocket extends Component {
     this.socket.on("vehicles_update", data => this.props.updateVehicles(data));
   }
 
-  componentWillUnmount() {
-    //disconnect scoket
-  }
-
   render() {
     return this.props.children;
   }
