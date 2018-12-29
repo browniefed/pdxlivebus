@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { connect } from "react-redux";
 import { updateVehicles } from "../actions/vehicles";
 import io from "socket.io-client";

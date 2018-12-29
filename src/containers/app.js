@@ -5,7 +5,7 @@ import { Map, Marker, TileLayer } from "react-leaflet";
 import map from "lodash/map";
 import VehicleSocket from "./VehicleSocket";
 
-import { divIcon, point } from "leaflet";
+import { divIcon } from "leaflet";
 
 const position = [45.52, -122.6716007];
 
@@ -35,9 +35,9 @@ class App extends Component {
               let classes = {
                 ["marker"]: true,
               };
-              if (type == "rail") {
+              if (type === "rail") {
                 classes[`rail${routeNumber}`] = true;
-              } else if (type == "bus") {
+              } else if (type === "bus") {
                 classes["bus"] = true;
               }
 
