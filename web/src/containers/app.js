@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import classnames from "classnames";
-import { connect } from "react-redux";
 import { Map, Marker, TileLayer } from "react-leaflet";
 import VehicleSocket from "./vehicles";
 import { divIcon } from "leaflet";
@@ -59,9 +58,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    vehicles: state.vehicles,
-  };
-};
-export default connect(mapStateToProps)(App);
+export default App;
