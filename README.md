@@ -31,3 +31,4 @@ Then run `npm start` inside the server to spin up a server at `localhost:3001`.
 ### Apps
 
 In either the `web` or `native` directories run `npm start`.
+The apps should kick off and connect to your running server
