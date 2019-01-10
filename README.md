@@ -1,18 +1,33 @@
 # PDXLiveBus  
 
-The PDXLiveBus app built in React.
-
-Server located here [https://github.com/browniefed/pdxlivebus-server](https://github.com/browniefed/pdxlivebus-server).
+The PDXLiveBus app built in React and React Native.
+It uses Express, and Socket.io.
+Server located in the server folder.
 
 ![http://i.imgur.com/PLh6pce.jpg](http://i.imgur.com/PLh6pce.jpg)
 
-### React Native
+## React Native
 
-The React Native bit has been moved to a child directory.
+The React Native version is inside of the native folder.
 
+## Running it
 
-### Running it
+Run `yarn` or `npm install` in the `web`, `server`, and `native` directories.
+
+### Server
 
 You'll need an API Key from here [http://developer.trimet.org/appid/registration/](http://developer.trimet.org/appid/registration/)
 
-Then you'll need to run stuff with `APPID={APIKEYHERE} npm run dev`. Same goes for the server. Just needs to be on `process.env`. Why you care about this if you're not in Portland? Hell if I know.
+Then you'll need to create a  `.env` file in the `server` folder and add. But you'll replace `API_KEY_HERE` with the api key from Trimet.
+
+```
+TRIMET_KEY=API_KEY_HERE
+```
+
+Then run `npm start` inside the server to spin up a server at `localhost:3001`.
+
+
+
+### Apps
+
+In either the `web` or `native` directories run `npm start`.

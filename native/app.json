@@ -4,7 +4,10 @@
     "description": "PDX Live Bus Mobile.",
     "slug": "pdxlivebusnative",
     "privacy": "public",
-    "sdkVersion": "31.0.0",
+    "extra": {
+      "SERVER": "http://localhost:3001"
+    },
+    "sdkVersion": "32.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",

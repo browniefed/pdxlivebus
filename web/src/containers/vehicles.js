@@ -6,7 +6,7 @@ class VehicleSocket extends Component {
     vehicles: [],
   };
   componentDidMount() {
-    this.socket = io("https://pdxlivebus.now.sh/", {
+    this.socket = io(process.env.SERVER, {
       transports: ["websocket"],
     });
     this.socket.on("vehicles_update", data =>
