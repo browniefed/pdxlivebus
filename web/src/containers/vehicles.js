@@ -6,7 +6,7 @@ class VehicleSocket extends Component {
     vehicles: [],
   };
   componentDidMount() {
-    this.socket = io(process.env.SERVER, {
+    this.socket = io(process.env.REACT_APP_SERVER, {
       transports: ["websocket"],
     });
     this.socket.on("vehicles_update", data =>

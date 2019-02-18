@@ -13,7 +13,7 @@ async function getVehicles() {
   const data = await res.json();
 
   if (data && data.resultSet && data.resultSet.vehicle) {
-    const vehicles = resultSet.vehicle.map(vehicle => {
+    const vehicles = data.resultSet.vehicle.map(vehicle => {
       return {
         routeNumber: vehicle.routeNumber,
         direction: vehicle.direction,
