@@ -41,7 +41,7 @@ const Map = ({
         return (
           <Marker
             icon={icon}
-            key={vehicle.vehicleID}
+            key={vehicle.id}
             position={[vehicle.latitude, vehicle.longitude]}
           />
         );

@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import { useSubscription } from "urql";
 
 const Map = dynamic(() => import("../components/map"), {
   ssr: false,
@@ -16,9 +17,25 @@ const Index = () => {
 
   useRouter();
 
+  const [{ data }] = useSubscription({
+    query: `subscription WatchVehicles {
+      vehicles(where: {updated_at: {_gte: "now()"}}) {
+        direction
+        id
+        latitude
+        longitude
+        routeNumber
+        type
+        updated_at
+      }
+    }`,
+  });
+
+  console.log(data);
+
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0 }}>
-      <Map zoom={zoom} position={position} vehicles={[]} />
+      <Map zoom={zoom} position={position} vehicles={data?.vehicles ?? []} />
     </div>
   );
 };

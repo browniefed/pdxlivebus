@@ -5,10 +5,12 @@
   - role: anonymous
     permission:
       columns:
+      - created_at
+      - direction
       - id
-      - type
       - latitude
       - longitude
-      - direction
       - routeNumber
+      - type
+      - updated_at
       filter: {}

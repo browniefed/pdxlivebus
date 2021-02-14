@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "graphql": "^15.5.0",
+    "graphql-request": "^3.4.0",
     "leaflet": "^1.7.1",
     "next": "10.0.6",
     "react": "17.0.1",

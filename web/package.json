@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "graphql-request": "^3.4.0",
     "leaflet": "^1.4.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
