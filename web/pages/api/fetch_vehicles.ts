@@ -60,12 +60,13 @@ const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
       vehicles,
     });
 
-    console.log(REFETCH_URL);
     await wait();
-    fetch(REFETCH_URL);
-    res.json({
-      success: true,
+    console.log("Refetching");
+    fetch(REFETCH_URL, {
+      method: "GET",
     });
+
+    res.json({ succes: true });
   }
 };
 
