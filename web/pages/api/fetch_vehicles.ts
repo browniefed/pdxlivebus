@@ -6,7 +6,7 @@ const VEHICLE_URL = "http://developer.trimet.org/ws/v2/vehicles";
 
 const BASE_URL =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:8080"
+    ? "http://localhost:3000"
     : `https://${process.env.VERCEL_URL}`;
 const REFETCH_URL = `${BASE_URL}/api/fetch_vehicles`;
 
@@ -30,6 +30,14 @@ const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT, {
   },
 });
 
+const wait = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, 5000);
+  });
+};
+
 const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await fetch(
     `${VEHICLE_URL}?appID=${process.env.TRIMET_KEY}`
@@ -51,13 +59,11 @@ const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
     client.request(upsertVehicles, {
       vehicles,
     });
-
-    setTimeout(() => {
-      fetch(REFETCH_URL);
-      res.json({
-        success: true,
-      });
-    }, 5000);
+    await wait();
+    fetch(REFETCH_URL);
+    res.json({
+      success: true,
+    });
   }
 };
 
