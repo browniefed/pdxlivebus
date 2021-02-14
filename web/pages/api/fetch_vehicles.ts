@@ -74,12 +74,12 @@ const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
     .then((d) => {
       console.log(REFETCH_URL);
       console.log(d);
+      res.json({ succes: true });
     })
     .catch((error) => {
       console.log(error);
+      res.json({ succes: true });
     });
-
-  res.json({ succes: true });
 };
 
 export default getVehicles;
