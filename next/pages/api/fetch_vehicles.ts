@@ -33,12 +33,12 @@ const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
   if (data && data.resultSet && data.resultSet.vehicle) {
     const vehicles = data.resultSet.vehicle.map((vehicle) => {
       return {
-        id: vehicle.vehicleID,
-        routeNumber: vehicle.routeNumber,
-        direction: vehicle.direction,
-        latitude: vehicle.latitude,
-        longitude: vehicle.longitude,
-        type: vehicle.type,
+        id: String(vehicle.vehicleID),
+        routeNumber: String(vehicle.routeNumber),
+        direction: String(vehicle.direction),
+        latitude: String(vehicle.latitude),
+        longitude: String(vehicle.longitude),
+        type: String(vehicle.type),
       };
     });
 
@@ -46,9 +46,12 @@ const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
       vehicles,
     });
 
-    res.json({
-      success: true,
-    });
+    setTimeout(() => {
+      // invoke here
+      res.json({
+        success: true,
+      });
+    }, 5000);
   }
 };
 

@@ -19,7 +19,7 @@ const Index = () => {
 
   const [{ data }] = useSubscription({
     query: `subscription WatchVehicles {
-      vehicles(where: {updated_at: {_gte: "now()"}}) {
+      vehicles(where: {}) {
         direction
         id
         latitude
@@ -30,8 +30,6 @@ const Index = () => {
       }
     }`,
   });
-
-  console.log(data);
 
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0 }}>

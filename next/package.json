@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
     "leaflet": "^1.7.1",

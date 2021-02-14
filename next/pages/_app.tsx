@@ -1,6 +1,7 @@
 import "leaflet/dist/leaflet.css";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import "../app.css";
 
 const ProviderClient = dynamic(() => import("../urql"), {
   ssr: false,
