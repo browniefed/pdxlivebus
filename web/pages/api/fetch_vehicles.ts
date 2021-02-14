@@ -7,7 +7,7 @@ const VEHICLE_URL = "http://developer.trimet.org/ws/v2/vehicles";
 const BASE_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
-    : `https://${process.env.VERCEL_URL}`;
+    : `https://pdxlivebus.com`;
 const REFETCH_URL = `${BASE_URL}/api/fetch_vehicles`;
 
 const upsertVehicles = gql`
