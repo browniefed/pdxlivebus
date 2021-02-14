@@ -59,6 +59,8 @@ const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
     client.request(upsertVehicles, {
       vehicles,
     });
+
+    console.log(REFETCH_URL);
     await wait();
     fetch(REFETCH_URL);
     res.json({
