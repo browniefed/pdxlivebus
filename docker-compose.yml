@@ -1,0 +1,36 @@
+version: "3.6"
+services:
+  db:
+    image: postgres:12
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      TZ: UTC
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  graphql-engine:
+    image: hasura/graphql-engine:v1.3.4-beta.3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "db"
+    volumes:
+      - ./hasura/migrations:/hasura-migrations
+      - ./hasura/metadata:/hasura-metadata
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:@db:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      HASURA_GRAPHQL_DEV_MODE: "true"
+      HASURA_GRAPHQL_LOG_LEVEL: debug
+      HASURA_GRAPHQL_ENABLED_APIS: metadata,graphql
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: "anonymous"
+      HASURA_GRAPHQL_ADMIN_SECRET: secret
+      ACTION_BASE_URL: http://host.docker.internal:3000/api
+volumes:
+  db_data:

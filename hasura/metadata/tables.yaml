@@ -1,0 +1,14 @@
+- table:
+    schema: public
+    name: vehicles
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - id
+      - type
+      - latitude
+      - longitude
+      - direction
+      - routeNumber
+      filter: {}

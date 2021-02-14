@@ -1,0 +1,5 @@
+- name: trimet
+  webhook: '{{ACTION_BASE_URL}}/fetch_vehicles'
+  schedule: '* * * * *'
+  include_in_metadata: true
+  payload: {}
