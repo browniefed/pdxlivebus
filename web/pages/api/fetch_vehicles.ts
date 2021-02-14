@@ -59,23 +59,27 @@ const getVehicles = async (req: NextApiRequest, res: NextApiResponse) => {
     client.request(upsertVehicles, {
       vehicles,
     });
-
-    await wait();
-    console.log("Refetching");
-
-    fetch(REFETCH_URL, {
-      method: "GET",
-    })
-      .then((f) => {
-        return f.json();
-      })
-      .then((d) => {
-        console.log(REFETCH_URL);
-        console.log(d);
-      });
-
-    res.json({ succes: true });
   }
+
+  await wait();
+  console.log("Refetching");
+  console.log(REFETCH_URL);
+
+  fetch(REFETCH_URL, {
+    method: "GET",
+  })
+    .then((f) => {
+      return f.json();
+    })
+    .then((d) => {
+      console.log(REFETCH_URL);
+      console.log(d);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  res.json({ succes: true });
 };
 
 export default getVehicles;
