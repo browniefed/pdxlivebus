@@ -4,21 +4,13 @@ on:
     branches:
       - master
 jobs:
-  hasura_migration:
-    name: Hasura migration and Deploy
+  vercel:
+    name: Vercel Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      - name: Apply hasura migrations
-        uses: GavinRay97/hasura-ci-cd-action@v1.3
-        with:
-          HASURA_ENDPOINT: ${{ secrets.HASURA_ENDPOINT }}
-          HASURA_ADMIN_SECRET: ${{ secrets.HASURA_ADMIN_SECRET }}
-          HASURA_CLI_VERSION: v1.3.3
-          HASURA_MIGRATIONS_ENABLED: true
-          PATH_TO_HASURA_PROJECT_ROOT: ./hasura
       - name: Vercel Action
         uses: amondnet/vercel-action@v20
         with:
