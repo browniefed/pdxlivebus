@@ -13,7 +13,9 @@ const useVehicles = () => {
   const [vehicles, setVehicles] = useState([]);
 
   useEffect(() => {
-    const socket = io(process.env.VEHICLES_ENDPOINT);
+    const socket = io(process.env.NEXT_PUBLIC_VEHICLES_ENDPOINT);
+    console.log(socket);
+    console.log(process.env.NEXT_PUBLIC_VEHICLES_ENDPOINT);
     socket.on("vehicles", (data) => {
       setVehicles(data);
     });
