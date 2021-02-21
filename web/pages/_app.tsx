@@ -1,15 +1,11 @@
+import { Fragment } from "react";
 import "leaflet/dist/leaflet.css";
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import "../app.css";
-
-const ProviderClient = dynamic(() => import("../urql"), {
-  ssr: false,
-});
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ProviderClient>
+    <Fragment>
       <Head>
         <meta
           name="viewport"
@@ -17,7 +13,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-    </ProviderClient>
+    </Fragment>
   );
 }
 

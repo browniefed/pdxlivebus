@@ -1,1 +1,0 @@
-CREATE TABLE "public"."vehicles"("id" text NOT NULL, "type" text NOT NULL, "latitude" text NOT NULL, "longitude" text NOT NULL, "direction" text NOT NULL, "routeNumber" text NOT NULL, PRIMARY KEY ("id") );
